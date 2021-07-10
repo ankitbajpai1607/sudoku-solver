@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="./Images/sudokuIcon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sudoku Solver</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="flexBox">
     <header>
       <div>
         <h1>Sudoku</h1>
@@ -19,19 +20,14 @@
     <div class="container flexBox">
       <div class="leftBox"></div>
       <div class="rightBox flexBox">
-        <div>
-          <button class="submitButton">Submit Your Solution</button>
-        </div>
-        <div class="inputBox">
-          <textarea class="input"></textarea>
-          <button class="submitInput">Submit your Puzzle</button>
-        </div>
-        <div>
-          <button class="solverButton">Auto Solve</button>
-        </div>
-        <div>
-          <button class="resetButton">Reset</button>
-        </div>
+        <button class="submitButton">Submit Your Solution</button>
+
+        <textarea class="input scroll"></textarea>
+        <button class="submitInput">Submit your Puzzle</button>
+
+        <button class="solverButton">Auto Solve</button>
+
+        <button class="resetButton">Reset</button>
       </div>
     </div>
     <script src="app.js"></script>

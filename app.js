@@ -163,7 +163,7 @@ function resetSudoku() {
     temp.push(column);
   }
   arr = temp;
-  boardManipulation(arr);
+  displayNewSudoku(arr);
 }
 
 //initial Board creation
@@ -195,22 +195,23 @@ function onChangeHandler(e) {
   arr[id[0]][id[2]] = +e.target.value;
 }
 
-//display new input on board
+//display new sudoku input
 function submitInputHandler() {
   arr = inputHandler();
   backup = [...arr];
   if (arr.length === 9) {
     if (arr[0].length === 9) {
-      boardManipulation(arr);
+      displayNewSudoku(arr);
     } else {
-      alert("Please input a valid array");
+      alert("Please enter valid Sudoku");
     }
   } else {
-    alert("Please input a valid array");
+    alert("Please enter a valid Sudoku");
   }
 }
 
-function boardManipulation(array) {
+//reset new input and display in dom
+function displayNewSudoku(array) {
   arr = array;
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array[i].length; j++) {
@@ -234,7 +235,7 @@ function boardManipulation(array) {
 function inputHandler() {
   let questionInput = document.querySelector(".input").value;
   if (!questionInput.trim()) {
-    return alert("Cannot be empty");
+    return alert("Sudoku Cannot be empty");
   }
   let questionArray = [];
   let count = 0;
@@ -265,11 +266,11 @@ function solveChecker() {
     }
 
     if (Object.keys(objOne).length !== 9 || Object.keys(objTwo).length !== 9) {
-      return alert("Aww!! Try Again");
+      return alert("Try Again");
     }
   }
 
-  return successCelebrations();
+  return alert("Good Work!");
 }
 
 // sudoku solver
@@ -321,10 +322,10 @@ function sudokuSolver() {
     }
     return false;
   }
-  // console.table(arr);
+
   if (sudoku(0)) {
-    return boardManipulation(arr);
+    return displayNewSudoku(arr);
   } else {
-    alert("there is no solution for this puzzle");
+    alert("No solution for this puzzle");
   }
 }
