@@ -6,9 +6,9 @@
 
 In this project I have used the following tech stack.
 
-- HTML: [React](https://www.npmjs.com/package/react)
-- JavaScript: [Redux](https://www.npmjs.com/package/redux)
-- CSS: [CSS](https://styled-components.com/)
+- HTML: [Html](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- JavaScript: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- CSS: [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
 <br>
 
@@ -26,13 +26,13 @@ You can also take the glimpse of Project,just follow the below steps:
 
 1. Landing Page
 
-   ![facebook](https://github.com/ankitbajpai1607/sudoku-solver/blob/Images/Sudoku-UI.PNG)
+   ![sudoku](https://github.com/ankitbajpai1607/sudoku-solver/blob/main/Images/Sudoku-UI.PNG)
 
 <br>
 
 ## Features ✨
 
-1. User can post anything like: text,feeling,activities, photos, videos etc...
+1. User can post his/her own puzzles.
 2. User can solve a puzzle
 3. User can submit a puzzle and solve
 4. user can get solution for a puzzle using auto-solve
