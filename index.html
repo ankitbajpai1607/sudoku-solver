@@ -8,26 +8,31 @@
     <title>Sudoku Solver</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="flexBox">
+  <body class="flexBox scroll">
     <header class="flexBox">
-      <div>
-        <h1>Sudoku</h1>
-      </div>
-      <div>
-        <img src="./Images/robot.gif" alt="icon" />
-      </div>
+      <h1>Sudoku</h1>
+      <img src="./Images/robot.gif" alt="icon" />
     </header>
     <div class="container flexBox">
       <div class="leftBox"></div>
       <div class="rightBox flexBox">
-        <button class="submitButton flexBox">
-          <p>Submit Your Solution</p>
-        </button>
+        <div class="button submitButton flexBox">
+          <p class="flexBox">Submit Your Solution</p>
+        </div>
         <textarea class="input scroll"></textarea>
-        <button class="submitInput flexBox"><p>Submit Your Sudoku</p></button>
-        <button class="solverButton flexBox"><p>Auto Solve</p></button>
-        <button class="resetButton flexBox"><p>Reset Sudoku</p></button>
+        <div class="button submitInput flexBox">
+          <p class="flexBox">Submit Your Sudoku</p>
+        </div>
+        <div class="button solverButton flexBox">
+          <p class="flexBox">Auto Solve</p>
+        </div>
+        <div class="button resetButton flexBox">
+          <p class="flexBox">Reset Sudoku</p>
+        </div>
       </div>
+    </div>
+    <div class="modal">
+      <h1 class="popUp"></h1>
     </div>
     <script src="app.js"></script>
   </body>

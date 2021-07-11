@@ -120,20 +120,23 @@ resetButton.addEventListener("click", resetSudoku);
 let solverButton = document.querySelector(".solverButton");
 solverButton.addEventListener("click", sudokuSolver);
 
+const modal = document.querySelector(".modal");
+const message = document.querySelector(".popUp");
+
 //getting one sudoku preFilled
 function getSudokuPuzzle() {
   let gridInput = initState[Math.floor(Math.random() * initState.length)];
   arr = [];
   gridInput = gridInput.trim().split("\n");
   if (gridInput.length < 9) {
-    alert("invalid matrix");
+    popUp("Invalid Sudoku ⚠️");
     return;
   }
   let temp = [];
   for (let i = 0; i < gridInput.length; i++) {
     let column = gridInput[i].trim().split(" ").map(Number);
     if (column.length < 9) {
-      alert("invalid matrix");
+      popUp("Invalid Sudoku ⚠️");
       return;
     }
     temp.push(column);
@@ -150,14 +153,14 @@ function resetSudoku() {
   arr = [];
   gridInput = gridInput.trim().split("\n");
   if (gridInput.length < 9) {
-    alert("invalid matrix");
+    popUp("Invalid Sudoku ⚠️");
     return;
   }
   let temp = [];
   for (let i = 0; i < gridInput.length; i++) {
     let column = gridInput[i].trim().split(" ").map(Number);
     if (column.length < 9) {
-      alert("invalid matrix");
+      popUp("Invalid Sudoku ⚠️");
       return;
     }
     temp.push(column);
@@ -198,15 +201,19 @@ function onChangeHandler(e) {
 //display new sudoku input
 function submitInputHandler() {
   arr = inputHandler();
-  backup = [...arr];
-  if (arr.length === 9) {
-    if (arr[0].length === 9) {
-      displayNewSudoku(arr);
+  if (arr) {
+    backup = [...arr];
+    if (arr.length === 9) {
+      if (arr[0].length === 9) {
+        displayNewSudoku(arr);
+      } else {
+        popUp("❌ Please enter a valid Sudoku ❌");
+      }
     } else {
-      alert("Please enter valid Sudoku");
+      popUp("❌ Please enter a valid Sudoku ❌");
     }
   } else {
-    alert("Please enter a valid Sudoku");
+    popUp("❌ Please enter a valid Sudoku ❌");
   }
 }
 
@@ -235,7 +242,7 @@ function displayNewSudoku(array) {
 function inputHandler() {
   let questionInput = document.querySelector(".input").value;
   if (!questionInput.trim()) {
-    return alert("Sudoku Cannot be empty");
+    return popUp("❌ Sudoku Cannot be Empty! ❌");
   }
   let questionArray = [];
   let count = 0;
@@ -255,7 +262,6 @@ function inputHandler() {
 }
 
 //solution checker
-
 function solveChecker() {
   for (let i = 0; i < arr.length; i++) {
     let objOne = {};
@@ -266,11 +272,11 @@ function solveChecker() {
     }
 
     if (Object.keys(objOne).length !== 9 || Object.keys(objTwo).length !== 9) {
-      return alert("Try Again");
+      return popUp("😞 Try Again 😞");
     }
   }
 
-  return alert("Good Work!");
+  return popUp("🎉 Good Work! 🎉");
 }
 
 // sudoku solver
@@ -326,6 +332,15 @@ function sudokuSolver() {
   if (sudoku(0)) {
     return displayNewSudoku(arr);
   } else {
-    alert("No solution for this puzzle");
+    popUp("No solution for this puzzle 🥺");
   }
+}
+//popUp modal
+function popUp(data) {
+  modal.style.display = "grid";
+  message.innerHTML = data;
+  setTimeout(() => {
+    message.innerHTML = "";
+    modal.style.display = "None";
+  }, 2000);
 }
