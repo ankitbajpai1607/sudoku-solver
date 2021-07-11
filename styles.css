@@ -7,6 +7,7 @@ body {
   text-align: center;
   background-color: #091921;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 body::before {
@@ -60,17 +61,27 @@ button {
   visibility: hidden;
 }
 
+header {
+  color: #fff;
+  position: relative;
+  font-size: 30px;
+  font-family: "Courier New", Courier, monospace;
+}
+header img {
+  width: 90px;
+}
+
 .container {
   position: relative;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 6px;
   overflow: hidden;
   z-index: 10;
-  /* backdrop-filter: blur(15px); */
+  backdrop-filter: blur(15px);
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  padding: 15px 30px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,
@@ -82,7 +93,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 input[disabled] {
-  background-color: rgb(20, 2, 27);
+  background-color: #091921;
   color: white;
   cursor: pointer;
 }
@@ -111,6 +122,7 @@ input[disabled]:hover {
 .rightBox {
   flex-direction: column;
   text-align: center;
+  padding: 20px;
 }
 
 .input {
@@ -122,4 +134,57 @@ input[disabled]:hover {
   text-align: center;
   width: 280px;
   height: 250px;
+}
+
+button {
+  position: relative;
+  width: 280px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  color: #fff;
+  z-index: 1;
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: 0.5s;
+  margin: 5px;
+  overflow: hidden;
+}
+button:hover {
+  letter-spacing: 3px;
+}
+button p:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(45deg) translate(0);
+  transition: 0.5s;
+}
+textarea {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+textarea::placeholder {
+  color: #fff;
+}
+button:hover p:before {
+  transform: skewX(45deg) translateX(150%);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
 }

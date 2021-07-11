@@ -166,7 +166,7 @@ function resetSudoku() {
   displayNewSudoku(arr);
 }
 
-//initial Board creation
+//initial sudoku in display side
 function displaySudoku(arr) {
   for (let i = 0; i < 9; i++) {
     for (let j = 0; j < 9; j++) {

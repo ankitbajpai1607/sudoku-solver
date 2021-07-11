@@ -9,25 +9,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="flexBox">
-    <header>
+    <header class="flexBox">
       <div>
         <h1>Sudoku</h1>
       </div>
       <div>
-        <img src="#" alt="icon" />
+        <img src="./Images/robot.gif" alt="icon" />
       </div>
     </header>
     <div class="container flexBox">
       <div class="leftBox"></div>
       <div class="rightBox flexBox">
-        <button class="submitButton">Submit Your Solution</button>
-
+        <button class="submitButton flexBox">
+          <p>Submit Your Solution</p>
+        </button>
         <textarea class="input scroll"></textarea>
-        <button class="submitInput">Submit your Puzzle</button>
-
-        <button class="solverButton">Auto Solve</button>
-
-        <button class="resetButton">Reset</button>
+        <button class="submitInput flexBox"><p>Submit Your Sudoku</p></button>
+        <button class="solverButton flexBox"><p>Auto Solve</p></button>
+        <button class="resetButton flexBox"><p>Reset Sudoku</p></button>
       </div>
     </div>
     <script src="app.js"></script>
